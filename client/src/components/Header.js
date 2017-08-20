@@ -9,20 +9,30 @@ const styles = {
     marginTop: 30,
     width: '100%',
   },
-  flex: {
+  bar: {
+    color: 'white',
+    backgroundColor: '#43B02A',
+  },
+  title: {
     flex: 1,
+  },
+  button: {
+    color: 'white',
+    backgroundColor: 'green',
   },
 };
 
 const Header = () => (
-  <AppBar position="static">
-    <Toolbar>
-      <Typography type="title" color="inherit" style={styles.flex}>
-        Instacart Shopper
-      </Typography>
-      <Button color="contrast">Login</Button>
-    </Toolbar>
-  </AppBar>
+  <div style={styles.root}>
+    <AppBar position="static" style={styles.bar}>
+      <Toolbar>
+        <Typography type="title" color="inherit" style={styles.title}>
+          Instacart Shopper
+        </Typography>
+        <Button color="contrast" style={styles.button}>Login</Button>
+      </Toolbar>
+    </AppBar>
+  </div>
 );
 
 export default Header;
