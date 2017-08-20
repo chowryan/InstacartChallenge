@@ -57,25 +57,47 @@ const styles = {
 class SignupForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      openAlert: false,
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      zip: '',
-      code: '',
-      state: '',
-    };
+    const storage = sessionStorage.getItem('instacartShopper');
+    if (storage) {
+      const { firstName, lastName, email, phone, zip, code } = JSON.parse(storage);
+      this.state = {
+        editMode: true,
+        openAlert: false,
+        displayErrors: false,
+        firstName,
+        lastName,
+        email,
+        phone,
+        zip,
+        code,
+      };
+    } else {
+      this.state = {
+        editMode: false,
+        openAlert: false,
+        displayErrors: false,
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        zip: '',
+        code: '',
+      };
+    }
     this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
     this.sendToServer = this.sendToServer.bind(this);
     this.toggleAlert = this.toggleAlert.bind(this);
+    this.toggleEditMode = this.toggleEditMode.bind(this);
   }
 
   handleTextFieldChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
     });
+  }
+
+  toggleEditMode() {
+    this.setState({ editMode: true });
   }
 
   sendToServer() {
@@ -97,17 +119,29 @@ class SignupForm extends Component {
     };
     return axios.post('/signup', signupData)
       .then((res) => {
+        sessionStorage.setItem('instacartShopper', JSON.stringify(res.data));
+        this.toggleEditMode();
         console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }
+
   toggleAlert(bool) {
-    this.setState({ openAlert: bool });
+    const { firstName, lastName, email, phone, zip } = this.state;
+    if (!firstName || !lastName || !email || !phone || !zip) {
+      // use form error states
+      this.setState({ displayErrors: true });
+    } else {
+      this.setState({ openAlert: bool });
+    }
   }
+
   render() {
     const {
+      editMode,
+      displayErrors,
       openAlert,
       firstName,
       lastName,
@@ -132,9 +166,10 @@ class SignupForm extends Component {
           <div style={styles.formContainer}>
             <div style={styles.flex}>
               <Typography type="headline" style={styles.title}>
-                Apply Now!
+                {editMode ? 'Edit Application' : 'Apply Today!'}
               </Typography>
               <TextField
+                error={displayErrors && !firstName}
                 required
                 name="firstName"
                 label="First Name"
@@ -144,6 +179,7 @@ class SignupForm extends Component {
                 onChange={this.handleTextFieldChange}
               />
               <TextField
+                error={displayErrors && !firstName}
                 required
                 name="lastName"
                 label="Last Name"
@@ -154,6 +190,7 @@ class SignupForm extends Component {
               />
               <br />
               <TextField
+                error={displayErrors && !email}
                 required
                 name="email"
                 label="Email"
@@ -164,6 +201,7 @@ class SignupForm extends Component {
               />
               <br />
               <TextField
+                error={displayErrors && !phone}
                 required
                 name="phone"
                 label="Phone"
@@ -173,6 +211,7 @@ class SignupForm extends Component {
                 onChange={this.handleTextFieldChange}
               />
               <TextField
+                error={displayErrors && !zip}
                 required
                 name="zip"
                 label="Zip"
@@ -195,7 +234,7 @@ class SignupForm extends Component {
                 style={styles.button}
                 onClick={() => this.toggleAlert(true)}
               >
-                APPLY NOW
+                {editMode ? 'SAVE CHANGES' : 'APPLY NOW >'}
               </Button>
             </div>
           </div>
