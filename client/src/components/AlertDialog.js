@@ -29,7 +29,7 @@ class AlertDialog extends Component {
     this.props.sendToServer();
     this.setState({ status: 'loading' });
     // fake status bar
-    setTimeout(() => this.setState({ status: 'done' }), 1000);
+    setTimeout(() => this.setState({ status: 'done' }), 2000);
   }
 
   resetStatus() {
@@ -57,7 +57,7 @@ class AlertDialog extends Component {
       );
     } else if (status === 'loading') {
       title = 'Submitting Your Application ...';
-      text = <LinearProgress color="accent" />;
+      text = <LinearProgress />;
       buttons = (
         <DialogActions>
           <Button disabled>

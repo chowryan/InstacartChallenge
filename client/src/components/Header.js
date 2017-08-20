@@ -17,7 +17,7 @@ const styles = {
   },
   button: {
     color: 'white',
-    backgroundColor: 'green',
+    backgroundColor: '#FF5722',
   },
 };
 

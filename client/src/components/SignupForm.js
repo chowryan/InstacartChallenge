@@ -44,7 +44,7 @@ const styles = {
   },
   button: {
     color: 'white',
-    backgroundColor: 'green',
+    backgroundColor: '#FF5722',
     minWidth: '300px',
     minHeight: '60px',
     margin: '30px 0px 0px 0px',
@@ -103,6 +103,7 @@ class SignupForm extends Component {
   }
 
   sendToServer() {
+    this.toggleEditMode();
     const {
       firstName,
       lastName,
@@ -122,7 +123,6 @@ class SignupForm extends Component {
     return axios.post('/signup', signupData)
       .then((res) => {
         sessionStorage.setItem('instacartShopper', JSON.stringify(res.data));
-        this.toggleEditMode();
         console.log(res.data);
       })
       .catch((err) => {
