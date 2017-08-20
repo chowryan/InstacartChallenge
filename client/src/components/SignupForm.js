@@ -181,7 +181,7 @@ class SignupForm extends Component {
                 onChange={this.handleTextFieldChange}
               />
               <TextField
-                error={displayErrors && !firstName}
+                error={displayErrors && !lastName}
                 required
                 name="lastName"
                 label="Last Name"
