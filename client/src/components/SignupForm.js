@@ -26,6 +26,7 @@ const styles = {
     width: '30%',
     margin: '20px',
     display: 'flex',
+    padding: '0 0 20px 0',
   },
   flex: {
     margin: 'auto',
@@ -46,6 +47,7 @@ const styles = {
     backgroundColor: 'green',
     minWidth: '300px',
     minHeight: '60px',
+    margin: '30px 0px 0px 0px',
   },
   title: {
     flex: 1,

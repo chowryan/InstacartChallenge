@@ -6,7 +6,6 @@ import Button from 'material-ui/Button';
 
 const styles = {
   root: {
-    marginTop: 30,
     width: '100%',
   },
   bar: {
