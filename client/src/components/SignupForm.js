@@ -5,6 +5,8 @@ import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 
+import AlertDialog from './AlertDialog';
+
 const styles = {
   container: {
     display: 'flex',
@@ -56,6 +58,7 @@ class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      openAlert: false,
       firstName: '',
       lastName: '',
       email: '',
@@ -66,6 +69,7 @@ class SignupForm extends Component {
     };
     this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
     this.sendToServer = this.sendToServer.bind(this);
+    this.toggleAlert = this.toggleAlert.bind(this);
   }
 
   handleTextFieldChange(e) {
@@ -99,9 +103,12 @@ class SignupForm extends Component {
         console.log(err);
       });
   }
-
+  toggleAlert(bool) {
+    this.setState({ openAlert: bool });
+  }
   render() {
     const {
+      openAlert,
       firstName,
       lastName,
       email,
@@ -111,6 +118,11 @@ class SignupForm extends Component {
     } = this.state;
     return (
       <div>
+        <AlertDialog
+          open={openAlert}
+          sendToServer={this.sendToServer}
+          toggleAlert={this.toggleAlert}
+        />
         <Paper style={styles.container} elevation={5}>
           <div className="info-container" style={styles.infoContainer}>
             <div style={styles.info}>
@@ -181,7 +193,7 @@ class SignupForm extends Component {
               <br />
               <Button
                 style={styles.button}
-                onClick={this.sendToServer}
+                onClick={() => this.toggleAlert(true)}
               >
                 APPLY NOW
               </Button>
