@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import Header from './Header';
+// import SignupForm from './SignupForm';
+// import Footer from './Footer';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +13,13 @@ class App extends Component {
   }
 
   render() {
-    return <h1>{ this.state.text }</h1>;
+    return (
+      <div>
+        <Header />
+        {/* <SignupForm /> */}
+        {/* <Footer /> */}
+      </div>
+    );
   }
 }
 
