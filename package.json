@@ -14,7 +14,9 @@
     "express": "^4.15.4",
     "material-ui": "next",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "sequelize": "^4.6.0",
+    "sqlite3": "^3.1.9"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
