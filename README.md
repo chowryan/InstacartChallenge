@@ -28,3 +28,5 @@ WHERE created_at >= start_date AND created_at <= end_date
 GROUP BY date(created_at, "weekday 1", "-7 day"), workflow_state;`
 
 I tested this query using "DB Browser for SQLite http://sqlitebrowser.org/".
+
+![InstacartChallenge](http://i.imgur.com/vfQsB37.png)
