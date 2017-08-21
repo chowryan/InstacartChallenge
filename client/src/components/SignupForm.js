@@ -20,6 +20,8 @@ const styles = {
   },
   info: {
     padding: '20px',
+    color: 'green',
+    fontSize: '30',
   },
   formContainer: {
     flex: 1,
@@ -53,6 +55,11 @@ const styles = {
     flex: 1,
     color: 'green',
     padding: '20px 0',
+  },
+  list: {
+    color: 'gray',
+    padding: '20px 0',
+    fontSize: '20',
   },
 };
 
@@ -162,13 +169,21 @@ class SignupForm extends Component {
         <Paper style={styles.container} elevation={5}>
           <div className="info-container" style={styles.infoContainer}>
             <div style={styles.info}>
-              Lorem ipsum dolor sit amet, eget dapibus eget luctus quis imperdiet, ut pharetra bibendum et ac, suspendisse consectetuer vel elit odio. Dolor tempus orci sollicitudin feugiat ullamcorper, ipsum pellentesque duis, morbi praesent erat ut neque sit ante, vehicula tellus integer molestie.
+              Earn money shopping and delivering groceries, giving customers more time to do what they love.
+              <ul style={styles.list}>
+                <li><b>Be Independent</b> - Schedule work around your own life.</li>
+                <br />
+                <li><b>Have Fun</b> - Spend time shopping, exploring new things and being active.</li>
+                <br />
+                <li><b>Earn extra income</b> - Get paid weekly. Work Sundays to maximize your hours and pay.</li>
+                <br />
+              </ul>
             </div>
           </div>
           <div style={styles.formContainer}>
             <div style={styles.flex}>
               <Typography type="headline" style={styles.title}>
-                {editMode ? 'Edit Application' : 'Apply Today!'}
+                {editMode ? 'Edit Application' : 'Apply in under 5 minutes'}
               </Typography>
               <TextField
                 error={displayErrors && !firstName}
