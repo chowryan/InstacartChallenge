@@ -17,11 +17,12 @@ const styles = {
     flex: 1,
     width: '30%',
     margin: '20px',
+    display: 'flex',
   },
   info: {
     padding: '20px',
     color: 'green',
-    fontSize: '30',
+    margin: '0 auto',
   },
   formContainer: {
     flex: 1,
@@ -59,7 +60,7 @@ const styles = {
   list: {
     color: 'gray',
     padding: '20px 0',
-    fontSize: '20',
+    listStyleType: 'none',
   },
 };
 
@@ -167,18 +168,19 @@ class SignupForm extends Component {
           toggleAlert={this.toggleAlert}
         />
         <Paper style={styles.container} elevation={5}>
-          <div className="info-container" style={styles.infoContainer}>
-            <div style={styles.info}>
+          <div style={styles.infoContainer}>
+            <Typography type="subheading" style={styles.info}>
               Earn money shopping and delivering groceries, giving customers more time to do what they love.
-              <ul style={styles.list}>
-                <li><b>Be Independent</b> - Schedule work around your own life.</li>
-                <br />
-                <li><b>Have Fun</b> - Spend time shopping, exploring new things and being active.</li>
-                <br />
-                <li><b>Earn extra income</b> - Get paid weekly. Work Sundays to maximize your hours and pay.</li>
-                <br />
-              </ul>
-            </div>
+              <Typography type="subheading">
+                <ul style={styles.list}>
+                  <li><b>Be Independent</b> - Schedule work around your own life.</li>
+                  <br />
+                  <li><b>Have Fun</b> - Spend time shopping, exploring new things and being active.</li>
+                  <br />
+                  <li><b>Earn extra income</b> - Get paid weekly. Work Sundays to maximize your hours and pay.</li>
+                </ul>
+              </Typography>
+            </Typography>
           </div>
           <div style={styles.formContainer}>
             <div style={styles.flex}>
