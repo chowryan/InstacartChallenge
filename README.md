@@ -1,7 +1,9 @@
 # InstacartChallenge
 
 ## PART 1:
-![InstacartChallenge](https://media.giphy.com/media/3ohk2CTzJhhUGlMerK/giphy.gif)
+
+![InstacartChallenge](https://media.giphy.com/media/3owvKan7xkOnWsQrcc/giphy.gif)
+
 ### Running the App
 
 1. `npm install` - installs required node modules.
