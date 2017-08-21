@@ -2,7 +2,7 @@
 
 ## PART 1:
 
-![InstacartChallenge](https://media.giphy.com/media/3owvKan7xkOnWsQrcc/giphy.gif)
+![InstacartChallenge](https://media.giphy.com/media/3ohk2CTzJhhUGlMerK/giphy.gif)
 
 ### Running the App
 
