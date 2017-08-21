@@ -2,14 +2,14 @@
 
 ## PART 1:
 
-## Running the App
+### Running the App
 
 1. `npm install` - installs required node modules.
 2. `npm start` - runs server.
 3. `npm run build` - runs webpack build.
 4. Go to "http://localhost:5000/" in browser.
 
-## Todo List
+### Todo List
 
 1. Write Jest and/or Mocha tests.
 2. Modularize components, SignupForm.js can be broken up into smaller components.
