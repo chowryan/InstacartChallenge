@@ -20,12 +20,14 @@
 
 ## Part 2:
 
-Unable to finish writing the script but my SQL query was in the following format:
+I did not finish writing the SQL script; the query I was working on was the following:
 
 `SELECT count(workflow_state), date(created_at, "weekday 1", "-7 day"), workflow_state
 FROM applicants
 WHERE created_at >= start_date AND created_at <= end_date
 GROUP BY date(created_at, "weekday 1", "-7 day"), workflow_state;`
+
+The numbers do not match the sample results but they are close, maybe the query is offset but a day. I will continue debugging this issue later, but this was what I completed in the 4 hour limit.
 
 I tested this query using "DB Browser for SQLite http://sqlitebrowser.org/".
 
