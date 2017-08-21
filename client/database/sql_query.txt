@@ -1,0 +1,4 @@
+SELECT count(workflow_state), date(created_at, "weekday 1", "-7 day"), workflow_state
+FROM applicants
+WHERE created_at >= "2014-07-01" AND created_at <= "2014-09-01"
+GROUP BY date(created_at, "weekday 1", "-7 day"), workflow_state;
